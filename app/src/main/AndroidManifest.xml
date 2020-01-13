@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.birthdayalarm">
+    <!--Request for Boot permission of the device -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".app.MyApp">
+
+        <!--Register the on Boot event Receiver
+        <receiver
+            android:name="com.example.birthdayalarm.BootReciever"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+-->
+
+        <!--Register the alarm receiver
+        <receiver
+            android:name="com.example.birthdayalarm.AlarmReciever"
+            android:enabled="true" >
+        </receiver>-->
+
+        <!--Register the Time and Alarm Service
+        <service android:name="com.example.birthdayalarm.TimeService" >
+        </service>
+        <service android:name="com.example.birthdayalarm.AlarmService" >
+        </service>-->
+
+
+
+        <activity android:name=".ui.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <receiver android:name=".servicebackground.MyAlarmReceiver" android:process=":remote"/>
+        <service android:name=".servicebackground.MyTestService" android:exported="false"/>
+    </application>
+
+</manifest>
